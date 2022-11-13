@@ -64,11 +64,8 @@ let data = [
 
 const myDiv = document.getElementById("content");
 const myButtons = document.getElementsByTagName("button");
-console.log(myButtons);
-console.log("type of myButtons= ", myButtons);
 
-// console.log(myButtons[0].innerHTML);
-// --------------------------------------------------
+// ---------------------HTML Struktur-----------------------------
 const writeInHtml = data.map((object, index) => {
 	console.log(object);
 	console.log(index);
@@ -81,32 +78,26 @@ const writeInHtml = data.map((object, index) => {
 });
 myDiv.innerHTML = writeInHtml;
 
+//----------------------- Undefined Buttons entfernen -----------------
 for (let i = 0; i < myButtons.length; i++) {
 	if (myButtons[i].innerHTML == "undefined") {
 		myButtons[i].remove();
 		// myButtons[i].classList.add("hidden");
-		// delete myButtons[i];
 	}
 }
 for (let i = 0; i < myButtons.length; i++) {
 	if (myButtons[i].innerHTML == "undefined") {
 		myButtons[i].remove();
 		// myButtons[i].classList.add("hidden");
-		// delete myButtons[i];
 	}
 }
 
+//-----------------------EventListener Vergabe + answer Check -----------------
 let counter = 0;
 
 for (let i = 0; i < data.length; i++) {
-	console.log("i= ", i);
-	console.log("button innerHTML= ", myButtons[i].innerHTML);
-	console.log("button answer= ", data[i].answer);
 	for (let j = 0; j < data[i].choice.length; j++) {
-		console.log("j= ", j);
 		myButtons[counter].addEventListener("click", (event) => {
-			// console.log(event);
-			console.log("click.innerHTML", event.innerHTML);
 			if (event.target.innerHTML == data[i].answer.toString()) {
 				event.target.style.backgroundColor = "green";
 			} else {
@@ -116,58 +107,3 @@ for (let i = 0; i < data.length; i++) {
 		counter++;
 	}
 }
-
-// for (let i = 0; i < data.length; i++) {
-// 	console.log("i= ", i);
-// 	console.log("button innerHTML= ", myButtons[i].innerHTML);
-// 	console.log("button answer= ", data[i].answer);
-// 	myButtons[i].addEventListener("click", () => {
-// 		for (let j = 0; j < data.choice.length; j++) {
-// 			console.log("j= ", j);
-// 			if (myButtons[j].innerHTML == data[i].answer) {
-// 				myButtons[j].style.backgroundColor = "green";
-// 			} else {
-// 				myButtons[j].style.backgroundColor = "red";
-// 			}
-// 		}
-// 	});
-// }
-// --------------------------------------------------
-
-// let createDiv = document.createElement("div");
-
-// let template = `<div>
-//                 <img src="${data[0].url}"
-//                 ${test(data)}
-//             </div>`;
-
-// function test(arrr) {
-// 	data.map((elt) => {
-// 		for (let i = 0; i < elt.choice.length; i++) {
-// 			let divv = `<div>${elt.choice[i]}</div>`;
-
-// 			return divv;
-// 		}
-// 	});
-// 	return arrr;
-// }
-
-// let counter = 0;
-// let newArray = [];
-
-// newArray[counter] = data.map((elt) => {
-// 	console.log(data.length);
-// 	console.log(elt);
-// 	console.log(counter);
-
-// 	let createImg = document.createElement("img");
-// 	myDiv.appendChild(createDiv);
-// 	myDiv.firstChild.appendChild(createImg);
-// 	myDiv.lastChild.lastChild.setAttribute("src", data[counter].url);
-// 	myDiv.lastChild.lastChild.style.height = "100px";
-// 	myDiv.lastChild.lastChild.style.width = "100px";
-// 	counter++;
-// 	return elt;
-// });
-
-// console.log(newArray);
