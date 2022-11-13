@@ -67,8 +67,6 @@ const myButtons = document.getElementsByTagName("button");
 
 // ---------------------HTML Struktur-----------------------------
 const writeInHtml = data.map((object, index) => {
-	console.log(object);
-	console.log(index);
 	return `	<img class="bild" src="${object.url}" alt="random picture" />
 	<p class="question">${object.question}</p>
 	<div class="button-wrapper">
@@ -79,20 +77,16 @@ const writeInHtml = data.map((object, index) => {
 myDiv.innerHTML = writeInHtml;
 
 //----------------------- Undefined Buttons entfernen -----------------
-for (let i = 0; i < myButtons.length; i++) {
-	if (myButtons[i].innerHTML == "undefined") {
-		myButtons[i].remove();
-		// myButtons[i].classList.add("hidden");
-	}
-}
-for (let i = 0; i < myButtons.length; i++) {
-	if (myButtons[i].innerHTML == "undefined") {
-		myButtons[i].remove();
-		// myButtons[i].classList.add("hidden");
+for (let a = 0; a < 2; a++) {
+	for (let i = 0; i < myButtons.length; i++) {
+		if (myButtons[i].innerHTML == "undefined") {
+			myButtons[i].remove();
+			// myButtons[i].classList.add("hidden");
+		}
 	}
 }
 
-//-----------------------EventListener Vergabe + answer Check -----------------
+//-----------------------EventListener Vergabe + answer Check + styling -----------------
 let counter = 0;
 
 for (let i = 0; i < data.length; i++) {
